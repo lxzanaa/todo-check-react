@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TodosList({ todos, setTodos, seteditTodo }) {
+export default function TodosList({ todos, setTodos, setEditTodo }) {
     let handleComplete = (todo) => {
         setTodos(
             todos.map((item) => {
@@ -9,15 +9,18 @@ export default function TodosList({ todos, setTodos, seteditTodo }) {
                 }
                 return item;
             })
-        )
-    }
+        );
+    };
+
     let handleEdit = ({ id }) => {
-        let findTodo = todos.find((todo) => todo.id === id)
-        seteditTodo(findTodo)
-    }
+        let findTodo = todos.find((todo) => todo.id === id);
+        setEditTodo(findTodo);
+    };
+
     let handleDelete = ({ id }) => {
-        setTodos(todos.filter((todo) => todo.id !== id))
-    }
+        setTodos(todos.filter((todo) => todo.id !== id));
+    };
+
     return (
         <div>
             <ul>
@@ -49,5 +52,3 @@ export default function TodosList({ todos, setTodos, seteditTodo }) {
         </div>
     );
 }
-
-
